@@ -12,8 +12,6 @@ public class FadeInOut : MonoBehaviour
 
 
 
-
-
     public void SC()
     {
         SceneMgr.Instance.ChangeScene();

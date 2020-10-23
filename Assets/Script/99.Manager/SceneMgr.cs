@@ -11,13 +11,25 @@ public class SceneMgr : MonoBehaviour
     private string sceneName;
     public string SceneName { get => sceneName; set => sceneName = value; }
 
+    private Stack<string> sceneLog = new Stack<string>();
+    public Stack<string> SceneLog { get => sceneLog; set => sceneLog = value; }
+
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        sceneLog.Push("0.StartScene");
+    }
 
     public void SceneChange(string _SceneName)
     {
@@ -27,6 +39,7 @@ public class SceneMgr : MonoBehaviour
 
     public void ChangeScene()
     {
+        sceneLog.Push(sceneName);
         SceneManager.LoadScene(sceneName);
     }
 

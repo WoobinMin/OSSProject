@@ -8,11 +8,17 @@ public class CanvasMgr : MonoBehaviour
     public static CanvasMgr Instance => instance;
 
     public GameObject cfadeinout;
+    public GameObject cSettingButton;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
     }
 
 

@@ -9,6 +9,8 @@ public class CanvasMgr : MonoBehaviour
 
     public GameObject cfadeinout;
     public GameObject cSettingButton;
+    public GameObject cBackButton;
+
 
     private void Awake()
     {
@@ -24,8 +26,12 @@ public class CanvasMgr : MonoBehaviour
 
     void Start()
     {
-        instance = this;
     }
 
+    public void ActiveFalse(bool _isActive)
+    {
+        this.gameObject.SetActive(_isActive);
+        cfadeinout.SetActive(false);
+    }
 
 }

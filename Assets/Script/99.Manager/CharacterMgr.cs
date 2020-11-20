@@ -8,8 +8,14 @@ public class CharacterMgr : MonoBehaviour
     private static CharacterMgr instance;
     public static CharacterMgr Instance => instance;
 
-    private int charcolor = (int)CharColor.Original;
-    public int Charcolor { get => charcolor; set => charcolor = value; }
+    private int charselect;
+    public int Charselect { get => charselect; set => charselect = value; }
+
+    private int coin;
+    public int Coin { get => coin; set => coin = value; }
+
+    private int hpupgrade;
+    public int HPUpgrade { set => hpupgrade = value; get => hpupgrade; }
 
     private void Awake()
     {

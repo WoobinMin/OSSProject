@@ -12,11 +12,11 @@ public class ChangeBtn : MonoBehaviour
     public void ChangeChar()
     {
         if (btn1.isSelect)
-            CharacterMgr.Instance.Charcolor = (int)CharColor.Original;
+            CharacterMgr.Instance.Charselect = (int)CharSelect.Boy;
         else if(btn2.isSelect)
-            CharacterMgr.Instance.Charcolor = (int)CharColor.Green;
+            CharacterMgr.Instance.Charselect = (int)CharSelect.Cat;
         else
-            CharacterMgr.Instance.Charcolor = (int)CharColor.Purple;
+            CharacterMgr.Instance.Charselect = (int)CharSelect.Dog;
 
         SceneMgr.Instance.SceneChange("1.LobbyScene");
     }

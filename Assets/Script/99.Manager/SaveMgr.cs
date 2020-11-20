@@ -22,14 +22,23 @@ public class SaveMgr : MonoBehaviour
     public void SaveGameData()
     {
         Debug.Log("Save Complete");
-        SaveGame.Save<int>("CharacterColor", CharacterMgr.Instance.Charcolor);
+        SaveGame.Save<int>("CharacterSelect", CharacterMgr.Instance.Charselect);
+        SaveGame.Save<int>("HPUpgrade", CharacterMgr.Instance.HPUpgrade);
+        SaveGame.Save<int>("Coin", CharacterMgr.Instance.Coin);
     }
 
 
     public void LoadGameData()
     {
         Debug.Log("Load Complete");
-        CharacterMgr.Instance.Charcolor = SaveGame.Load<int>("CharacterColor");
+        try { CharacterMgr.Instance.Charselect = SaveGame.Load<int>("CharacterSelect"); }
+        catch { CharacterMgr.Instance.Charselect = (int)CharSelect.Boy; }
+
+        try { CharacterMgr.Instance.HPUpgrade = SaveGame.Load<int>("HPUpgrade"); }
+        catch { CharacterMgr.Instance.HPUpgrade = 0; }
+
+        try { CharacterMgr.Instance.Coin = SaveGame.Load<int>("Coin"); }
+        catch { CharacterMgr.Instance.Coin = 0; }
     }
 
 

@@ -1,6 +1,12 @@
-﻿enum CharColor
+﻿enum CharSelect
 {
-    Original,
-    Green,
-    Purple
+    Boy,
+    Cat,
+    Dog
+}
+
+struct Delay
+{
+    public float lastTime;
+    public float curTime;
 }

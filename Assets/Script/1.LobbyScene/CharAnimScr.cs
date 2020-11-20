@@ -6,6 +6,11 @@ public class CharAnimScr : MonoBehaviour
 {
     private SpriteRenderer sr;
 
+    public Sprite boysr;
+    public Sprite catsr;
+    public Sprite dogsr;
+
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -13,16 +18,16 @@ public class CharAnimScr : MonoBehaviour
 
     void Update()
     {
-        switch(CharacterMgr.Instance.Charcolor)
+        switch(CharacterMgr.Instance.Charselect)
         {
             case 0:
-                sr.color = new Color(255, 255, 255);
+                sr.sprite = boysr;
                 break;
             case 1:
-                sr.color = new Color(255, 255, 0    );
+                sr.sprite = catsr;
                 break;
             case 2:
-                sr.color = new Color(211, 0, 255);
+                sr.sprite = dogsr;
                 break;
         }
     }

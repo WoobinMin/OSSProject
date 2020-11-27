@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CanvasMgr : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CanvasMgr : MonoBehaviour
     public GameObject cfadeinout;
     public GameObject cSettingButton;
     public GameObject cBackButton;
+    public GameObject cCoinUI;
 
 
     private void Awake()
@@ -28,10 +30,23 @@ public class CanvasMgr : MonoBehaviour
     {
     }
 
-    public void ActiveFalse(bool _isActive)
+    private void Update()
     {
-        this.gameObject.SetActive(_isActive);
-        cfadeinout.SetActive(false);
-    }
 
+        if(CharacterMgr.Instance.IsRunning)
+        {
+            cSettingButton.gameObject.SetActive(false);
+            cBackButton.gameObject.SetActive(false);
+            cCoinUI.gameObject.SetActive(false);
+        }
+        else if(CharacterMgr.Instance.SeeUI)
+        {
+            cSettingButton.gameObject.SetActive(true);
+            cBackButton.gameObject.SetActive(true);
+            cCoinUI.gameObject.SetActive(true);
+            cCoinUI.GetComponentInChildren<TextMeshProUGUI>().text = CharacterMgr.Instance.Coin.ToString();
+        }
+
+
+    }
 }

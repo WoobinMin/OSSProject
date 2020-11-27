@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BayatGames.SaveGameFree;
+using TMPro;
 
 public class SaveMgr : MonoBehaviour
 {
@@ -37,7 +38,10 @@ public class SaveMgr : MonoBehaviour
         try { CharacterMgr.Instance.HPUpgrade = SaveGame.Load<int>("HPUpgrade"); }
         catch { CharacterMgr.Instance.HPUpgrade = 0; }
 
-        try { CharacterMgr.Instance.Coin = SaveGame.Load<int>("Coin"); }
+        try { CharacterMgr.Instance.Coin = SaveGame.Load<int>("Coin");
+            CanvasMgr.Instance.cCoinUI.GetComponentInChildren<TextMeshProUGUI>().text = CharacterMgr.Instance.Coin.ToString();
+        }
+
         catch { CharacterMgr.Instance.Coin = 0; }
     }
 

@@ -11,9 +11,8 @@ public class SceneMgr : MonoBehaviour
     private string sceneName;
     public string SceneName { get => sceneName; set => sceneName = value; }
 
-    private Stack<string> sceneLog = new Stack<string>();
-    public Stack<string> SceneLog { get => sceneLog; set => sceneLog = value; }
-
+    private string prevName;
+    public string PrevName { get => prevName; set => prevName = value; }
 
     private void Awake()
     {
@@ -26,10 +25,6 @@ public class SceneMgr : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-        sceneLog.Push("0.StartScene");
-    }
 
     public void SceneChange(string _SceneName)
     {
@@ -39,7 +34,6 @@ public class SceneMgr : MonoBehaviour
 
     public void ChangeScene()
     {
-        sceneLog.Push(sceneName);
         SceneManager.LoadScene(sceneName);
     }
 

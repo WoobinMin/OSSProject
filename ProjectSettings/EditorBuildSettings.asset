@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/3.ShopScene.unity
     guid: 52260685b3a28b14bab2d4fefe6b92f7
   - enabled: 1
-    path: Assets/Scenes/4. Stage1.unity
+    path: Assets/Scenes/4.Stage1.unity
     guid: c5cb975a93f411f499164c4a6c4a111f
+  - enabled: 1
+    path: Assets/Scenes/5.Stage2.unity
+    guid: 84a98cbfd0efc684894c494433f834af
+  - enabled: 1
+    path: Assets/Scenes/6.Stage3.unity
+    guid: f333dbb5e2600b74ba423b1c2a485f72
+  - enabled: 1
+    path: Assets/Scenes/99.RestartScene.unity
+    guid: 4610f81d4c2695a4b956878c5b32cedc
   m_configObjects: {}

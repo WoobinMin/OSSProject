@@ -10,26 +10,62 @@ public class GameCanvas : MonoBehaviour
     private Player player;
     private TextMeshProUGUI tmp;
 
+    public int startX;
+    public int finishX;
+
+    public GameObject endUI;
+    public Slider mapclear;
+    public TextMeshProUGUI percentage;
+    public TextMeshProUGUI Coins;
+
+
     private void Start()
     {
         HPBar = GetComponentInChildren<Slider>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         tmp = GetComponentInChildren<TextMeshProUGUI>();
         HPBar.maxValue = 100 + CharacterMgr.Instance.HPUpgrade * 10;
-        HPBar.transform.localScale = new Vector3(HPBar.maxValue * 5f / 100f, HPBar.transform.localScale.y, HPBar.transform.localScale.z);
         HPBar.value = HPBar.maxValue;
+
+        endUI.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     void Update()
     {
-        SetSlider();
+
+        if (CharacterMgr.Instance.IsRunning)
+            SetSlider();
+        else if (!endUI.activeSelf)
+        {
+            try
+            {
+                endUI.SetActive(true);
+                mapclear.maxValue = finishX - startX;
+                mapclear.value = ((int)player.transform.position.x - startX);
+                percentage.text = ((int)((1 - ((mapclear.maxValue - mapclear.value) / mapclear.maxValue)) * 100)).ToString() + "%";
+                CharacterMgr.Instance.Coin += GameMgr.Instance.GameCoin;
+                Coins.text = "Coins : " + GameMgr.Instance.GameCoin.ToString();
+                Destroy(player.gameObject);
+            }
+            catch { }
+
+        }
+  
     }
 
     private void SetSlider()
     {
-        if(HPBar.value >= 0)
-            HPBar.value = player.HP;
+        try
+        {
+            if (HPBar.value >= 0)
+                HPBar.value = player.HP;
 
-        tmp.text = GameMgr.Instance.GameCoin.ToString();
+            tmp.text = GameMgr.Instance.GameCoin.ToString();
+        }
+        catch {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        }
+
     }
 }

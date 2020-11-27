@@ -16,10 +16,13 @@ public class FollowCam : MonoBehaviour
 
     void Update()
     {
-        targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        targetPosition += new Vector3(offSetX, offSetY,0);
-        targetPosition.z = -10f;
-         this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, speed * Time.deltaTime);
+        if(CharacterMgr.Instance.IsRunning)
+        {
+            targetPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            targetPosition += new Vector3(offSetX, offSetY,0);
+            targetPosition.z = -10f;
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, speed * Time.deltaTime);
+        }
     }
 
 

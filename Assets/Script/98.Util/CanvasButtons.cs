@@ -6,11 +6,7 @@ public class CanvasButtons : MonoBehaviour
 {
     public void BackButton()
     {
-        if (SceneMgr.Instance.SceneLog.Count > 1)
-        {
-            SceneMgr.Instance.SceneLog.Pop();
-            SceneMgr.Instance.SceneChange(SceneMgr.Instance.SceneLog.Pop());
-        }
+            SceneMgr.Instance.SceneChange("0.StartScene");
     }
 
 

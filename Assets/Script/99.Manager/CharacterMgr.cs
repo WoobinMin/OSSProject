@@ -11,6 +11,11 @@ public class CharacterMgr : MonoBehaviour
     private int charselect;
     public int Charselect { get => charselect; set => charselect = value; }
 
+    private bool isRunning = false;
+    public bool IsRunning { get => isRunning; set => isRunning = value; }
+    private bool seeUI = false;
+    public bool SeeUI { get => seeUI; set => seeUI = value; }
+
     private int coin;
     public int Coin { get => coin; set => coin = value; }
 

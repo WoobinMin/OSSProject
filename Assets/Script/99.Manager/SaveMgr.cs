@@ -41,7 +41,6 @@ public class SaveMgr : MonoBehaviour
         try { CharacterMgr.Instance.Coin = SaveGame.Load<int>("Coin");
             CanvasMgr.Instance.cCoinUI.GetComponentInChildren<TextMeshProUGUI>().text = CharacterMgr.Instance.Coin.ToString();
         }
-
         catch { CharacterMgr.Instance.Coin = 0; }
     }
 

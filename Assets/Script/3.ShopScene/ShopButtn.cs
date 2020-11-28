@@ -16,7 +16,7 @@ public class ShopButtn : MonoBehaviour
 
     public void HPUpGrade()
     {
-        if(CharacterMgr.Instance.Coin >= 50 + CharacterMgr.Instance.HPUpgrade)
+        if(CharacterMgr.Instance.Coin >= 50 + CharacterMgr.Instance.HPUpgrade * 5)
         {
             CharacterMgr.Instance.HPUpgrade += 1;
             CharacterMgr.Instance.Coin -= 50  + CharacterMgr.Instance.HPUpgrade * 5;

@@ -14,6 +14,7 @@ public class Buttons : MonoBehaviour
     public void GameEnd()
     {
         SaveMgr.Instance.SaveGameData();
+        Application.Quit();
     }
 
 }
